@@ -1,0 +1,75 @@
+[
+  {
+    "name": "Simple component",
+    "type": "describe",
+    "children": [
+      {
+        "name": "when renders",
+        "type": "describe",
+        "children": [
+          {
+            "name": "when renders a",
+            "type": "describe",
+            "children": [
+              {
+                "name": "when renders b",
+                "type": "describe",
+                "children": [
+                  {
+                    "name": "should actually render",
+                    "type": "it"
+                  }
+                ]
+              },
+              {
+                "name": "should actually render 2",
+                "type": "it"
+              }
+            ]
+          },
+          {
+            "name": "should actually render 3",
+            "type": "it"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Simple component 2",
+    "type": "describe",
+    "children": [
+      {
+        "name": "when renders 2",
+        "type": "describe",
+        "children": [
+          null,
+          {
+            "name": "when renders a",
+            "type": "describe",
+            "children": [
+              {
+                "name": "when renders b",
+                "type": "describe",
+                "children": [
+                  {
+                    "name": "should actually render 4",
+                    "type": "it"
+                  }
+                ]
+              },
+              {
+                "name": "should actually render 5",
+                "type": "it"
+              }
+            ]
+          },
+          {
+            "name": "should actually render 6",
+            "type": "it"
+          }
+        ]
+      }
+    ]
+  }
+]
