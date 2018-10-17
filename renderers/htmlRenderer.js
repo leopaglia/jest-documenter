@@ -36,7 +36,7 @@ const renderLevel = (state, level) => state.reduce((acc, curr) => {
 
 const render = (filename, state) => new Promise((resolve, reject) => {
   const innerHtml = renderLevel(state, 0);
-  const template = fs.readFileSync('./template.html', 'utf8');
+  const template = fs.readFileSync('./renderers/template.html', 'utf8');
   const html = template.replace('{body}', innerHtml);
 
   fs.writeFile(filename, html, (err) => {  

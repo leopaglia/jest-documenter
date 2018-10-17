@@ -2,11 +2,11 @@ const fs = require('fs')
 const { Parser } = require('acorn')
 const walk = require('acorn-walk')
 const jsx = require('acorn-jsx');
-const render = require('./htmlRenderer');
+const render = require('./renderers/htmlRenderer');
 
 const extendedParser = Parser.extend(jsx());
 
-const simpleTestPath = './examples/int.spec.js'
+const simpleTestPath = './examples/input/int.spec.js'
 const simpleTestContent = fs.readFileSync(simpleTestPath, 'utf8')
 
 const ast = extendedParser.parse(simpleTestContent, { sourceType: 'module', ecmaVersion: 10 })
@@ -46,4 +46,4 @@ walk.recursive(ast, state, {
   } 
 })
 
-render('./doc.html', state)
+render('./examples/output/htmlRenderer.html', state)
