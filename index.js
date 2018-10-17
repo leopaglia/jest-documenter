@@ -1,57 +1,49 @@
 const fs = require('fs')
-const acorn = require("acorn")
-const walk = require("acorn/dist/walk")
+const { Parser } = require('acorn')
+const walk = require('acorn-walk')
+const jsx = require('acorn-jsx');
+const render = require('./htmlRenderer');
 
-const simpleTestPath = './examples/simpleTest.spec.js'
-const simpleTestContent = fs.readFileSync(simpleTestPath, "utf8")
+const extendedParser = Parser.extend(jsx());
 
-const ast = acorn.parse(simpleTestContent)
+const simpleTestPath = './examples/int.spec.js'
+const simpleTestContent = fs.readFileSync(simpleTestPath, 'utf8')
 
-const isDescribe = callExpressionNode => callExpressionNode.callee.name === "describe"
-const isIt = callExpressionNode => callExpressionNode.callee.name === "it"
+const ast = extendedParser.parse(simpleTestContent, { sourceType: 'module', ecmaVersion: 10 })
+
+const isDescribe = callExpressionNode => callExpressionNode.callee.name === 'describe'
+const isIt = callExpressionNode => callExpressionNode.callee.name === 'it'
 const getNodeName = callExpressionNode => callExpressionNode.arguments[0].value
 const getChildrenSiblings = callExpressionNode => callExpressionNode.arguments[1].body.body
 
 const state = []
 
 walk.recursive(ast, state, {
-  CallExpression(node, state, c) {
+  CallExpression(node, state, cb) {
+    
     if (isDescribe(node)) {
       const name = getNodeName(node)
-
       const children = []
+
       for(child of getChildrenSiblings(node)) {
         const childState = []
-        c(child.expression, childState)
-        const newChild = childState[0]
-        if (newChild) children.push(newChild)
+        const { expression } = child;
+
+        if (expression) {
+          cb(child.expression, childState);
+          const newChild = childState[0]
+          if (newChild) children.push(newChild)
+        }
       }
 
-      state.push({ name, type: "describe", children }) 
+      state.push({ name, type: 'describe', children }) 
     }
 
     if (isIt(node)) {
       const name = getNodeName(node)
-      state.push({ name, type: "it" }) 
+      state.push({ name, type: 'it' }) 
     }
   } 
 })
 
-const renderLevel = (state, level) => {
-  const tabs = '\t'.repeat(level)
-
-  return state.reduce((acc, curr) => {
-    if(curr.type === "describe") {
-      const formattedChildren = renderLevel(curr.children, level + 1)
-      return `${acc}\n\n${tabs}${curr.name}${formattedChildren}`
-    }
-
-    if(curr.type === "it") {
-      return `${acc}\n${tabs}- ${curr.name}`
-    }
-  }, '')
-}
-
-const formattedString = renderLevel(state, 0)
-
-formattedString
+render('./doc.html', state)

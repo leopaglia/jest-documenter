@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "acorn": "^5.7.1"
+    "acorn": "^6.0.2",
+    "acorn-jsx": "^5.0.0",
+    "acorn-walk": "^6.1.0"
   }
 }
