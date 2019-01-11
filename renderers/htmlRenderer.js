@@ -1,6 +1,6 @@
 const fs = require('fs');
 
-const replaceAll = (search, replace, str) => str.replace(new RegExp(search, "g"), replace);
+const replaceAll = (search, replace, str) => str.replace(new RegExp(search, 'g'), replace);
 
 const card = (name, body) => {
   const id = `${replaceAll(' ', '-', replaceAll('"', '', name))}-${Math.floor(Math.random() * 100000)}`;
@@ -18,31 +18,33 @@ const card = (name, body) => {
         </div>
       </div>
     </div>
-  `
+  `;
 };
 
 const p = text => `<p class="p-1">${text}</p>`;
 
-const renderLevel = (state, level) => state.reduce((acc, curr) => {
-  if(curr.type === 'describe') {
-    const formattedChildren = renderLevel(curr.children, level + 1)
-    return acc + card(curr.name, formattedChildren)
-  }
+const renderLevel = (state, level) =>
+  state.reduce((acc, curr) => {
+    if (curr.type === 'describe') {
+      const formattedChildren = renderLevel(curr.children, level + 1);
+      return acc + card(curr.name, formattedChildren);
+    }
 
-  if(curr.type === 'it') {
-    return acc + p(curr.name)
-  }
-}, '');
+    if (curr.type === 'it') {
+      return acc + p(curr.name);
+    }
+  }, '');
 
-const render = (filename, state) => new Promise((resolve, reject) => {
-  const innerHtml = renderLevel(state, 0);
-  const template = fs.readFileSync('./renderers/template.html', 'utf8');
-  const html = template.replace('{body}', innerHtml);
+const render = (filename, state) =>
+  new Promise((resolve, reject) => {
+    const innerHtml = renderLevel(state, 0);
+    const template = fs.readFileSync('./renderers/template.html', 'utf8');
+    const html = template.replace('{body}', innerHtml);
 
-  fs.writeFile(filename, html, (err) => {  
-    if (err) reject(err);
-    resolve();
+    fs.writeFile(filename, html, err => {
+      if (err) reject(err);
+      resolve();
+    });
   });
-});
 
 module.exports = render;
