@@ -4,11 +4,11 @@ const renderLevel = (state, level) => {
   return state.reduce((acc, curr) => {
     if (curr.type === 'describe') {
       const formattedChildren = renderLevel(curr.children, level + 1);
-      return `${acc}\n\n${tabs}${curr.name}${formattedChildren}`;
+      return `${acc}\n\n${tabs}${curr.text}${formattedChildren}`;
     }
 
     if (curr.type === 'it') {
-      return `${acc}\n${tabs}- ${curr.name}`;
+      return `${acc}\n${tabs}- ${curr.text}`;
     }
   }, '');
 };

@@ -1,72 +1,304 @@
 [
   {
-    "name": "Simple component",
+    "id": "4d21f3b4-eb94-49b2-9f84-f11fcd3483e0",
+    "text": "Payment screen",
     "type": "describe",
     "children": [
       {
-        "name": "when renders",
+        "id": "640abc21-11dd-4c17-9e4b-9bf896c9d1d7",
+        "text": "when Payment renders",
         "type": "describe",
         "children": [
+          { "id": "20ef5d21-dbf7-4a3c-a64b-fd00cb67da66", "text": "should have pay button disabled", "type": "it" },
           {
-            "name": "when renders a",
+            "id": "731e8162-f694-4b29-9133-5e46fd5f41cf",
+            "text": "should have amount value from previous screen",
+            "type": "it"
+          },
+          {
+            "id": "b3ddc41a-0bb6-4926-8875-f5d6460ffb99",
+            "text": "should have amount value from previous screen",
+            "type": "it"
+          },
+          {
+            "id": "7895ea32-9230-4b3f-a42a-dd75f9fe6fa8",
+            "text": "should have amount value from previous screen",
+            "type": "it"
+          },
+          {
+            "id": "eb75b848-275a-4631-bdef-e47dfcd05e99",
+            "text": "should not have a \"Add another payment button\"",
+            "type": "it"
+          },
+          {
+            "id": "955fb762-923f-4436-b35c-98e5d2f8be5d",
+            "text": "when you select cash paymentMethod",
             "type": "describe",
             "children": [
               {
-                "name": "when renders b",
+                "id": "4c006e01-4d13-48c8-af54-5b7fa56073fe",
+                "text": "should have a \"Add another payment button\"",
+                "type": "it"
+              },
+              {
+                "id": "0da1ed9d-7740-484b-88e6-2dc50a36ecb1",
+                "text": "when you click on \"Add another payment\"",
                 "type": "describe",
                 "children": [
                   {
-                    "name": "should actually render",
+                    "id": "5e77e3d4-6aa0-43f4-902f-71b680158f5d",
+                    "text": "should fill second amount field with zero",
+                    "type": "it"
+                  },
+                  {
+                    "id": "a43d66b9-684c-4fe3-99d4-6a2c2db28029",
+                    "text": "should disable second amount field",
+                    "type": "it"
+                  },
+                  {
+                    "id": "27d4e1e9-e62f-4d01-b7fd-d0c99006b1d2",
+                    "text": "should enable first amount field",
+                    "type": "it"
+                  },
+                  {
+                    "id": "438ab4f0-4fdb-4797-b766-d7749e59700c",
+                    "text": "should render \"Invalid amount\" error to force user to modify first amount",
                     "type": "it"
                   }
                 ]
               },
               {
-                "name": "should actually render 2",
-                "type": "it"
+                "id": "17f2a72c-3621-4291-b516-960109c922f3",
+                "text": "when you click on \"Remove\"",
+                "type": "describe",
+                "children": [
+                  {
+                    "id": "dc15531b-6b3a-489c-b01d-9dbc3816446f",
+                    "text": "should have a \"Add another payment button\"",
+                    "type": "it"
+                  },
+                  {
+                    "id": "3e4310e7-af89-4207-8dd3-701f531f94f1",
+                    "text": "should disable first amount field",
+                    "type": "it"
+                  }
+                ]
               }
             ]
           },
           {
-            "name": "should actually render 3",
-            "type": "it"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "name": "Simple component 2",
-    "type": "describe",
-    "children": [
-      {
-        "name": "when renders 2",
-        "type": "describe",
-        "children": [
-          null,
-          {
-            "name": "when renders a",
+            "id": "1a6a6dc2-f88c-450b-bbdf-c7a5838e5537",
+            "text": "when you select CREDIT CARD paymentMethod",
             "type": "describe",
             "children": [
               {
-                "name": "when renders b",
+                "id": "ea5bed4d-c878-4e41-b87e-1631aacad6b7",
+                "text": "should have a \"Add another payment button\"",
+                "type": "it"
+              },
+              {
+                "id": "f7bdc921-5d06-4b35-ad01-cfc2995ebaa9",
+                "text": "when you click on add another payment",
                 "type": "describe",
                 "children": [
                   {
-                    "name": "should actually render 4",
+                    "id": "8383d713-1051-411d-afbf-2ea51bd69a99",
+                    "text": "should fill second amount field with zero",
+                    "type": "it"
+                  },
+                  {
+                    "id": "e1a1039b-391a-41b5-8d4a-8d71bbc43b7b",
+                    "text": "should disable second amount field",
+                    "type": "it"
+                  },
+                  {
+                    "id": "dc5cc321-c145-4927-a7e2-c28e223617a5",
+                    "text": "should enable first amount field",
+                    "type": "it"
+                  },
+                  {
+                    "id": "17d52f9f-61e1-487c-a184-931931c9ee49",
+                    "text": "should render \"Invalid amount\" error to force user to modify first amount",
+                    "type": "it"
+                  },
+                  { "id": "0e0ddb15-d4f7-4158-96cc-6289ec64f200", "text": "should have NONE option", "type": "it" },
+                  {
+                    "id": "e170537b-097c-4e0f-a518-1c1eb6d3d0c2",
+                    "text": "should have CASH payment option",
+                    "type": "it"
+                  },
+                  {
+                    "id": "b0689d9f-6bcd-48b5-9494-b40ef579072c",
+                    "text": "should have CREDIT CARD payment option",
                     "type": "it"
                   }
                 ]
               },
               {
-                "name": "should actually render 5",
-                "type": "it"
+                "id": "b8f68090-3e70-4ebb-be8e-67aaf2babc9c",
+                "text": "when you click on \"Remove\"",
+                "type": "describe",
+                "children": [
+                  {
+                    "id": "ad76b58f-6770-47c8-b510-3ae973d5ca63",
+                    "text": "should have a \"Add another payment button\"",
+                    "type": "it"
+                  },
+                  {
+                    "id": "81b1df81-a58e-4ff6-94ec-f86163892e7c",
+                    "text": "should disable first amount field",
+                    "type": "it"
+                  }
+                ]
               }
             ]
           },
           {
-            "name": "should actually render 6",
-            "type": "it"
+            "id": "608729cb-9def-4880-a7fa-31c6c88a6493",
+            "text": "when you select GIFT CARD paymentMethod",
+            "type": "describe",
+            "children": [
+              {
+                "id": "a3f18b99-b244-4dbc-abed-6ea84c01d7da",
+                "text": "should have a \"Add another payment button\"",
+                "type": "it"
+              },
+              {
+                "id": "59171437-63e4-4a0a-95fd-1a6e5de7911e",
+                "text": "when you click on add another payment",
+                "type": "describe",
+                "children": [
+                  {
+                    "id": "c1e51201-9712-4c64-952c-59569abefcf4",
+                    "text": "should fill second amount field with zero",
+                    "type": "it"
+                  },
+                  {
+                    "id": "0022da71-28c6-4210-8cac-ec28cbae54a7",
+                    "text": "should disable second amount field",
+                    "type": "it"
+                  },
+                  {
+                    "id": "4f10f803-60f5-4483-977b-c8c495e53d87",
+                    "text": "should enable first amount field",
+                    "type": "it"
+                  },
+                  {
+                    "id": "fa0b6eb3-1155-4469-aa3e-c9cf0db0e045",
+                    "text": "should render \"Invalid amount\" error to force user to modify first amount",
+                    "type": "it"
+                  },
+                  { "id": "5593e271-4f3e-49f1-b5c4-361841052a69", "text": "should have NONE option", "type": "it" },
+                  {
+                    "id": "a5d77790-7285-4596-ba29-1d3e5e484876",
+                    "text": "should have CASH payment option",
+                    "type": "it"
+                  },
+                  {
+                    "id": "4e83eeec-d82b-458c-9013-d86c3c828895",
+                    "text": "should have CREDIT CARD payment option",
+                    "type": "it"
+                  }
+                ]
+              },
+              {
+                "id": "e05071b8-507f-47ea-a4ec-723dc1446f40",
+                "text": "when you click on \"Remove\"",
+                "type": "describe",
+                "children": [
+                  {
+                    "id": "5d3fb62d-dae8-4e6f-bd67-230e1c47f70a",
+                    "text": "should have a \"Add another payment button\"",
+                    "type": "it"
+                  },
+                  {
+                    "id": "28a3ee0f-7b7a-4d8f-9748-8618a4b7ef84",
+                    "text": "should disable first amount field",
+                    "type": "it"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "2a5b9070-064b-4c48-9912-210fe8d3463e",
+            "text": "when you select CREDIT CARD to pay",
+            "type": "describe",
+            "children": [
+              {
+                "id": "6bf2d849-cbb9-4653-9b96-292257fd20ea",
+                "text": "should have a \"Add another payment button\"",
+                "type": "it"
+              },
+              {
+                "id": "c8f831a2-8573-4053-8d99-8407b4937f51",
+                "text": "when you click on add another payment",
+                "type": "describe",
+                "children": [
+                  { "id": "45b33102-ef27-4b46-9836-54d9c476638d", "text": "should not have any errors", "type": "it" },
+                  {
+                    "id": "fda482bc-286f-4266-9aea-67adf45cb854",
+                    "text": "should have pay button enabled",
+                    "type": "it"
+                  },
+                  {
+                    "id": "b432e2b2-6c3c-4b6a-8e56-069ab001df90",
+                    "text": "when you click on add another payment",
+                    "type": "describe",
+                    "children": [
+                      {
+                        "id": "f8235c80-f8fd-48a1-b438-0a0239ebdedb",
+                        "text": "should fill second amount field with zero",
+                        "type": "it"
+                      },
+                      {
+                        "id": "706f91fa-06fd-4556-a83b-2fbbc56486a0",
+                        "text": "should disable second amount field",
+                        "type": "it"
+                      },
+                      {
+                        "id": "93e2c71d-f95a-4a64-a72c-ce335fb239e1",
+                        "text": "should enable first amount field",
+                        "type": "it"
+                      },
+                      {
+                        "id": "1a4a3ba9-ca74-40f5-a3ba-2532119b48ce",
+                        "text": "should render \"Invalid amount\" error to force user to modify first amount",
+                        "type": "it"
+                      },
+                      { "id": "c577702f-588b-4247-8928-4644deeac506", "text": "should have NONE option", "type": "it" },
+                      {
+                        "id": "1da51ae7-4d2d-4dc5-abbd-0c41edca42cf",
+                        "text": "should have CASH payment option",
+                        "type": "it"
+                      },
+                      {
+                        "id": "4268996d-1cee-4b74-9171-bb35447dfaf6",
+                        "text": "should have CREDIT CARD payment option",
+                        "type": "it"
+                      },
+                      {
+                        "id": "6b372aab-1369-4b32-82c6-78b2f442e0f8",
+                        "text": "should have pay button disabled",
+                        "type": "it"
+                      },
+                      {
+                        "id": "d89d9f99-789c-47f8-ae25-66f910421f94",
+                        "text": "when user select CASH payment method and modify first amount",
+                        "type": "describe",
+                        "children": [
+                          {
+                            "id": "0dc4db7b-3e28-44e1-be28-1af57942a2ab",
+                            "text": "should have pay button enabled",
+                            "type": "it"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
           }
         ]
       }

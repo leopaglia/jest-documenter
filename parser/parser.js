@@ -2,8 +2,9 @@ const { head, isEmpty } = require('ramda');
 const { Parser } = require('acorn');
 const walk = require('acorn-walk');
 const jsx = require('acorn-jsx');
+const { v4 } = require('uuid');
 
-const { isDescribe, isIt, getNodeName, getChildrenSiblings } = require('./utils');
+const { isDescribe, isIt, getNodeText, getChildrenSiblings } = require('./utils');
 
 const extendedParser = Parser.extend(jsx());
 
@@ -26,10 +27,10 @@ const parse = testContent => {
       return isEmpty(childState) ? acc : [...acc, head(childState)];
     }, []);
 
-    return { name: getNodeName(node), type: 'describe', children };
+    return { id: v4(), text: getNodeText(node), type: 'describe', children };
   };
 
-  const parseItNode = node => ({ name: getNodeName(node), type: 'it' });
+  const parseItNode = node => ({ id: v4(), text: getNodeText(node), type: 'it' });
 
   const state = [];
 
